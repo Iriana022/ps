@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   sort_utils3.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: irazafim <irazafim@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/25 07:10:28 by irazafim          #+#    #+#             */
-/*   Updated: 2024/08/22 14:11:25 by irazafim         ###   ########.fr       */
+/*   Created: 2024/08/22 12:46:19 by irazafim          #+#    #+#             */
+/*   Updated: 2024/08/22 13:47:24 by irazafim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <push_swap.h>
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	push_in_a(t_data **a, t_data **b, size_t a_index, size_t len_a)
 {
-	unsigned char	*ucs;
-	unsigned char	cc;
-	size_t			i;
+	size_t	i;
 
-	ucs = (unsigned char *)s;
-	cc = (unsigned char)c;
-	i = 0;
-	while (i < n)
+	i = -1;
+	if (a_index <= len_a / 2)
 	{
-		if (ucs[i] == cc)
-			return ((void *)(ucs + i));
-		i++;
+		while (++i < (size_t)(a_index - 1))
+			rotate(a, "ra");
 	}
-	return (NULL);
+	else if (a_index > len_a / 2)
+	{
+		while (++i < (size_t)(len_a - a_index + 1))
+			reverse_rotate(a, "rra");
+	}
+	push(a, b, "pa");
 }

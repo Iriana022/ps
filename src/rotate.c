@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: irazafim <irazafim@student.42antananarivo  +#+  +:+       +#+        */
+/*   By: irazafim <irazafim@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 11:43:11 by irazafim          #+#    #+#             */
-/*   Updated: 2024/08/15 11:43:39 by irazafim         ###   ########.fr       */
+/*   Updated: 2024/08/22 11:56:39 by irazafim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	rotate(t_data **stack, const char *name)
 {
-	int	value;
+	int		value;
 	t_data	*new;
 	t_data	*tmp;
 	t_data	*last;
@@ -43,6 +43,14 @@ void	rr(t_data **a, t_data **b)
 	ft_putstr_fd("rr\n", 1);
 }
 
+static void	put_name_rr(const char *name)
+{
+	if (ft_strncmp(name, "rra", 69) == 0)
+		ft_putstr_fd("rra\n", 1);
+	else
+		ft_putstr_fd("rrb\n", 1);
+}
+
 void	reverse_rotate(t_data **stack, const char *name)
 {
 	t_data	*last;
@@ -51,7 +59,7 @@ void	reverse_rotate(t_data **stack, const char *name)
 
 	last = find_last(*stack);
 	new = create_new_element(last->content);
-	if (NULL == new)
+	if (!new)
 		exit(1);
 	curr = *stack;
 	while (curr->next)
@@ -60,18 +68,15 @@ void	reverse_rotate(t_data **stack, const char *name)
 		{
 			curr->next = NULL;
 			break ;
-		}			
-		curr = curr->next;		
+		}
+		curr = curr->next;
 	}
 	new->next = *stack;
 	*stack = new;
 	free(last);
 	if (NULL == name)
 		return ;
-	if (ft_strncmp(name, "rra", 69) == 0)
-		ft_putstr_fd("rra\n", 1);
-	else
-		ft_putstr_fd("rrb\n", 1);
+	put_name_rr(name);
 }
 
 void	rrr(t_data **a, t_data **b)

@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: irazafim <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: irazafim <irazafim@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 10:21:28 by irazafim          #+#    #+#             */
-/*   Updated: 2024/05/11 14:13:44 by irazafim         ###   ########.fr       */
+/*   Updated: 2024/08/22 14:13:16 by irazafim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 void	ft_putnbr(int nb, int *count)
 {

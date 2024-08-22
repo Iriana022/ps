@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iriana <iriana@student.42.fr>              +#+  +:+       +#+        */
+/*   By: irazafim <irazafim@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 11:41:07 by irazafim          #+#    #+#             */
-/*   Updated: 2024/08/21 20:50:31 by iriana           ###   ########.fr       */
+/*   Updated: 2024/08/22 11:44:15 by irazafim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,13 @@ void	insert_last(t_data **data, t_data *new)
 	curr = *data;
 	while (curr->next)
 		curr = curr->next;
-	curr->next = new;	
+	curr->next = new;
 }
 
 void	insert_data(t_data **data, int ac, char **av)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 	char	**arg;
 	t_data	*new_el;
 
@@ -56,11 +56,11 @@ void	insert_data(t_data **data, int ac, char **av)
 		j = -1;
 		while (arg[++j] != NULL)
 		{
-			new_el = create_new_element(ft_atoi(arg[j]));	
+			new_el = create_new_element(ft_atoi(arg[j]));
 			if (!new_el)
 				exit(1);
 			insert_last(data, new_el);
 		}
+		double_free(arg);
 	}
-	double_free(arg);
 }

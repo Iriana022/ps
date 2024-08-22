@@ -3,46 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iriana <iriana@student.42.fr>              +#+  +:+       +#+        */
+/*   By: irazafim <irazafim@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 11:39:39 by irazafim          #+#    #+#             */
-/*   Updated: 2024/08/21 22:35:53 by iriana           ###   ########.fr       */
+/*   Updated: 2024/08/22 11:37:59 by irazafim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include <push_swap.h>
-
-void	free_list(t_data *data)
-{
-	t_data	*tmp;
-
-	while (data)
-	{
-		tmp = data;
-		data = data->next;
-		free(tmp);
-	}
-}
-
-void	double_free(char **arr)
-{
-	int	i;
-
-	i = 0;
-	while(arr[i])
-	{
-		free(arr[i]);
-		i++;
-	}
-	free(arr);
-}
-
-void	show_error_mess(void)
-{
-	ft_printf("Error\n");
-	exit(1);
-}
 
 void	check_double(t_data *data)
 {
@@ -88,11 +56,10 @@ void	check_error(char *s, char **ptr)
 
 size_t	count_size(int ac, char **av)
 {
-	int 	i;
-	int	j;
-	int	counter;
+	int		i;
+	int		j;
+	int		counter;
 	char	**arg;
-
 
 	counter = 0;
 	i = 0;
@@ -114,16 +81,38 @@ size_t	count_size(int ac, char **av)
  *  - not contained in a int
  *  - has a double
  */
+
+void	check_error_space(char **av, char ***arg, int i, int *j)
+{
+	while (av[i][*j])
+	{
+		while (av[i][*j] == 32 && av[i][*j])
+			*j += 1;
+		if (ft_isdigit(av[i][*j]) == 0
+			&& (av[i][*j] != '-' && av[i][*j] != '+'))
+		{
+			if (*arg && *arg[0])
+				double_free(*arg);
+			show_error_mess();
+		}
+		else
+			*j += 1;
+	}
+}
+
 void	handle_errors(int ac, char **av)
 {
-	int 		i;
-	int		j;
+	int				i;
+	int				j;
 	long long int	n;
-	char		**arg;
+	char			**arg;
 
 	i = 0;
 	while (++i < ac)
 	{
+		arg = NULL;
+		j = 0;
+		check_error_space(av, &arg, i, &j);
 		arg = ft_split(av[i], ' ');
 		if (!arg)
 			exit(1);
@@ -133,11 +122,8 @@ void	handle_errors(int ac, char **av)
 			check_error(arg[j], arg);
 			n = ft_atol(arg[j]);
 			if (!(n >= INT_MIN && n <= INT_MAX))
-			{
-				double_free(arg);
-				show_error_mess();
-			}
+				free_and_error(&arg);
 		}
+		double_free(arg);
 	}
-	double_free(arg);
 }

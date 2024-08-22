@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   little_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: irazafim <irazafim@student.42antananarivo  +#+  +:+       +#+        */
+/*   By: irazafim <irazafim@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 11:41:46 by irazafim          #+#    #+#             */
-/*   Updated: 2024/08/15 11:42:10 by irazafim         ###   ########.fr       */
+/*   Updated: 2024/08/22 11:45:55 by irazafim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static size_t	find_max_index(t_data *stack)
 {
 	size_t	i;
 	size_t	j;
-	int	max;
+	int		max;
 
 	max = stack->content;
 	j = 0;
@@ -36,7 +36,7 @@ static size_t	find_max_index(t_data *stack)
 
 void	sort_two(t_data **stack)
 {
-		swap(*stack, "sa");
+	swap(*stack, "sa");
 }
 
 void	sort_three(t_data **stack)

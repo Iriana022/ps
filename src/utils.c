@@ -3,21 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: irazafim <irazafim@student.42antananarivo  +#+  +:+       +#+        */
+/*   By: irazafim <irazafim@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 11:44:47 by irazafim          #+#    #+#             */
-/*   Updated: 2024/08/15 11:45:11 by irazafim         ###   ########.fr       */
+/*   Updated: 2024/08/22 13:50:39 by irazafim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
-
-void	print_data(t_data *data)
-{
-	for (t_data *curr = data; curr != NULL; curr = curr->next)
-		printf("%d ", curr->content);
-	printf("\n");
-}
 
 t_data	*find_last(t_data *node)
 {
@@ -53,7 +46,7 @@ size_t	is_sorted(t_data *stack)
 			if (curr->content > tmp->content)
 				return (0);
 			tmp = tmp->next;
-		}			
+		}
 		curr = curr->next;
 	}
 	return (1);
@@ -64,7 +57,7 @@ size_t	find_min_index(t_data **stack)
 	int		min;
 	size_t	i;
 	size_t	index;
-	t_data 	*curr;
+	t_data	*curr;
 
 	curr = *stack;
 	min = curr->content;

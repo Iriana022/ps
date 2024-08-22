@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap_push.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: irazafim <irazafim@student.42antananarivo  +#+  +:+       +#+        */
+/*   By: irazafim <irazafim@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 11:44:19 by irazafim          #+#    #+#             */
-/*   Updated: 2024/08/15 11:44:40 by irazafim         ###   ########.fr       */
+/*   Updated: 2024/08/22 13:49:09 by irazafim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ void	ss(t_data *a, t_data *b)
 {
 	swap(a, NULL);
 	swap(b, NULL);
-	ft_putstr_fd("ss\n", 1);	
+	ft_putstr_fd("ss\n", 1);
 }
 
 void	push(t_data **stack_one, t_data **stack_two, const char *name)
 {
-	int	value;
+	int		value;
 	t_data	*new;
 	t_data	*tmp;
 
