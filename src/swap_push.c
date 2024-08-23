@@ -6,7 +6,7 @@
 /*   By: irazafim <irazafim@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 11:44:19 by irazafim          #+#    #+#             */
-/*   Updated: 2024/08/22 13:49:09 by irazafim         ###   ########.fr       */
+/*   Updated: 2024/08/23 08:25:01 by irazafim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ void	push(t_data **stack_one, t_data **stack_two, const char *name)
 
 	value = (*stack_two)->content;
 	new = create_new_element(value);
+	if (!new)
+		exit (1);
 	new->next = *stack_one;
 	*stack_one = new;
 	tmp = *stack_two;

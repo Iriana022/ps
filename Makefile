@@ -14,9 +14,6 @@ $(NAME): $(SRC_FILES)
 	make -C ./ft_printf
 	$(CC) $(CFLAGS) -g -I./include $(SRC_FILES) -o $(NAME) -Lft_printf -lftprintf
 
-gen:
-	$(CC) ./number_generator/gen.c -o gen
-
 clean:
 	make -C ./ft_printf
 	$(RM) *.o

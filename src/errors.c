@@ -6,7 +6,7 @@
 /*   By: irazafim <irazafim@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 11:39:39 by irazafim          #+#    #+#             */
-/*   Updated: 2024/08/22 11:37:59 by irazafim         ###   ########.fr       */
+/*   Updated: 2024/08/23 09:04:44 by irazafim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	check_error(char *s, char **ptr)
 	{
 		if (i == 0 && (s[i] == '-' || s[i] == '+'))
 			++i;
-		else if (!ft_isdigit(s[i]))
+		if (!ft_isdigit(s[i]))
 		{
 			double_free(ptr);
 			show_error_mess();
@@ -84,6 +84,8 @@ size_t	count_size(int ac, char **av)
 
 void	check_error_space(char **av, char ***arg, int i, int *j)
 {
+	if (!ft_strlen(av[i]))
+		show_error_mess();
 	while (av[i][*j])
 	{
 		while (av[i][*j] == 32 && av[i][*j])

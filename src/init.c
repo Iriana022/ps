@@ -6,7 +6,7 @@
 /*   By: irazafim <irazafim@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 11:41:07 by irazafim          #+#    #+#             */
-/*   Updated: 2024/08/22 11:44:15 by irazafim         ###   ########.fr       */
+/*   Updated: 2024/08/23 08:23:58 by irazafim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_data	*create_new_element(int nbr)
 	t_data	*new;
 
 	new = malloc(sizeof(t_data));
-	if (NULL == new)
+	if (!new)
 		return (NULL);
 	new->content = nbr;
 	new->cost = 0;

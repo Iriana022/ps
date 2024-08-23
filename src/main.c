@@ -6,11 +6,17 @@
 /*   By: irazafim <irazafim@student.42antananari    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 11:42:28 by irazafim          #+#    #+#             */
-/*   Updated: 2024/08/22 11:47:01 by irazafim         ###   ########.fr       */
+/*   Updated: 2024/08/23 09:44:02 by irazafim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
+
+static int	ret(t_data *p)
+{
+	free_list(p);
+	return (0);
+}
 
 int	main(int ac, char **av)
 {
@@ -27,7 +33,7 @@ int	main(int ac, char **av)
 	check_double(a);
 	stack_len = count_list(a);
 	if (stack_len == 1)
-		return (0);
+		return (ret(a));
 	else if (stack_len == 2 && !is_sorted(a))
 		sort_two(&a);
 	else if (stack_len == 3 && !is_sorted(a))
